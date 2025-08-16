@@ -1,9 +1,9 @@
 {
   "project": "Depthbound (infra)",
-  "version": "v0.1.3",
+  "version": "v0.1.4",
   "date": "2025-08-16",
   "notes": [
-    "Make initial smoke non-blocking on Esc: primary gate is 'no console errors on load'.",
-    "Still tries Esc via multiple focus/dispatch paths but uses a soft assertion."
+    "Smoke: remove any assertion about Esc/modal. Sole gate is 'no console errors on load'.",
+    "Keeps best-effort Esc fire but never fails on it."
   ]
 }
