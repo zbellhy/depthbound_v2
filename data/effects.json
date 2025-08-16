@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "effects": [
+    {
+      "id": "bleed",
+      "name": "Bleed",
+      "kind": "dot",
+      "per_turn": "1..2",
+      "max_stacks": 3,
+      "icon": "\u6ef4"
+    },
+    {
+      "id": "poison",
+      "name": "Poison",
+      "kind": "dot",
+      "per_turn": "1..2",
+      "max_stacks": 5,
+      "icon": "\u2620"
+    },
+    {
+      "id": "stun",
+      "name": "Stun",
+      "kind": "stun",
+      "turns": 1,
+      "icon": "\u2736"
+    }
+  ]
+}

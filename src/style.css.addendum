@@ -1,0 +1,4 @@
+
+/* Depthbound — v0.3.30 modal overrides */
+/* Use on #modal-inner when a UI (e.g., Inventory) needs extra width without CSS clamps. */
+#modal-inner.modal-wide{ max-width:none !important; width:auto; }

@@ -1,0 +1,18 @@
+--- a/src/ui/loot_window.js
++++ b/src/ui/loot_window.js
+@@
++import { consumeEscapeFor } from './ui_state.js';
+@@
+-  function onKey(e){ if (e.code==='Escape'){ e.preventDefault(); close(); } }
++  function onKey(e){ if (e.code==='Escape'){ e.preventDefault(); e.stopPropagation(); if (e.stopImmediatePropagation) e.stopImmediatePropagation(); close(true); } }
+@@
+-  document.addEventListener('keydown', onKey);
++  document.addEventListener('keydown', onKey, true);
+@@
+-  function close(){
++  function close(viaEsc=false){
++    if (viaEsc){ try{ state.input && state.input.swallowEscapeEdge && state.input.swallowEscapeEdge(); }catch(e){} consumeEscapeFor(250); }
+     document.removeEventListener('keydown', onKey);
+     m.classList.add('hidden');
+     if (options && options.onClose) options.onClose();
+   }

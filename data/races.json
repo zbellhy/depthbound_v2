@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "races": [
+    {
+      "id": "human",
+      "name": "Human",
+      "base_stats": {
+        "str": 1,
+        "dex": 1,
+        "int": 1,
+        "vit": 1,
+        "spi": 1
+      }
+    },
+    {
+      "id": "elf",
+      "name": "Elf",
+      "base_stats": {
+        "str": 0,
+        "dex": 2,
+        "int": 2,
+        "vit": 0,
+        "spi": 1
+      }
+    },
+    {
+      "id": "dwarf",
+      "name": "Dwarf",
+      "base_stats": {
+        "str": 2,
+        "dex": 0,
+        "int": 0,
+        "vit": 2,
+        "spi": 0
+      }
+    },
+    {
+      "id": "orc",
+      "name": "Orc",
+      "base_stats": {
+        "str": 3,
+        "dex": 0,
+        "int": -1,
+        "vit": 2,
+        "spi": 0
+      }
+    },
+    {
+      "id": "halfling",
+      "name": "Halfling",
+      "base_stats": {
+        "str": 0,
+        "dex": 2,
+        "int": 1,
+        "vit": 0,
+        "spi": 1
+      }
+    },
+    {
+      "id": "gnome",
+      "name": "Gnome",
+      "base_stats": {
+        "str": 0,
+        "dex": 1,
+        "int": 2,
+        "vit": 0,
+        "spi": 1
+      }
+    },
+    {
+      "id": "fiendborn",
+      "name": "Fiendborn",
+      "base_stats": {
+        "str": 1,
+        "dex": 0,
+        "int": 1,
+        "vit": 1,
+        "spi": 1
+      }
+    },
+    {
+      "id": "celestial",
+      "name": "Celestial",
+      "base_stats": {
+        "str": 0,
+        "dex": 0,
+        "int": 1,
+        "vit": 1,
+        "spi": 3
+      }
+    },
+    {
+      "id": "dragonkin",
+      "name": "Dragonkin",
+      "base_stats": {
+        "str": 2,
+        "dex": 0,
+        "int": 1,
+        "vit": 2,
+        "spi": 0
+      }
+    },
+    {
+      "id": "lizardfolk",
+      "name": "Lizardfolk",
+      "base_stats": {
+        "str": 2,
+        "dex": 1,
+        "int": 0,
+        "vit": 1,
+        "spi": 0
+      }
+    },
+    {
+      "id": "goblin",
+      "name": "Goblin",
+      "base_stats": {
+        "str": 0,
+        "dex": 2,
+        "int": 1,
+        "vit": 0,
+        "spi": 0
+      }
+    },
+    {
+      "id": "minotaur",
+      "name": "Minotaur",
+      "base_stats": {
+        "str": 3,
+        "dex": 0,
+        "int": 0,
+        "vit": 2,
+        "spi": -1
+      }
+    },
+    {
+      "id": "centaur",
+      "name": "Centaur",
+      "base_stats": {
+        "str": 2,
+        "dex": 1,
+        "int": 0,
+        "vit": 1,
+        "spi": 0
+      }
+    },
+    {
+      "id": "merfolk",
+      "name": "Merfolk",
+      "base_stats": {
+        "str": 0,
+        "dex": 1,
+        "int": 1,
+        "vit": 1,
+        "spi": 1
+      }
+    },
+    {
+      "id": "kitsune",
+      "name": "Kitsune",
+      "base_stats": {
+        "str": 0,
+        "dex": 2,
+        "int": 1,
+        "vit": 0,
+        "spi": 1
+      }
+    },
+    {
+      "id": "tengu",
+      "name": "Tengu",
+      "base_stats": {
+        "str": 0,
+        "dex": 2,
+        "int": 0,
+        "vit": 1,
+        "spi": 1
+      }
+    },
+    {
+      "id": "giantkin",
+      "name": "Giantkin",
+      "base_stats": {
+        "str": 3,
+        "dex": -1,
+        "int": 0,
+        "vit": 3,
+        "spi": 0
+      }
+    },
+    {
+      "id": "fae",
+      "name": "Fae",
+      "base_stats": {
+        "str": -1,
+        "dex": 2,
+        "int": 1,
+        "vit": 0,
+        "spi": 2
+      }
+    },
+    {
+      "id": "automaton",
+      "name": "Automaton",
+      "base_stats": {
+        "str": 1,
+        "dex": 0,
+        "int": 1,
+        "vit": 3,
+        "spi": -1
+      }
+    },
+    {
+      "id": "revenant",
+      "name": "Revenant",
+      "base_stats": {
+        "str": 1,
+        "dex": 0,
+        "int": 1,
+        "vit": 2,
+        "spi": 1
+      }
+    },
+    {
+      "id": "vampire",
+      "name": "Vampire",
+      "base_stats": {
+        "str": 1,
+        "dex": 2,
+        "int": 1,
+        "vit": 0,
+        "spi": 1
+      }
+    },
+    {
+      "id": "lycan",
+      "name": "Lycan",
+      "base_stats": {
+        "str": 2,
+        "dex": 2,
+        "int": -1,
+        "vit": 1,
+        "spi": 0
+      }
+    },
+    {
+      "id": "satyr",
+      "name": "Satyr",
+      "base_stats": {
+        "str": 0,
+        "dex": 2,
+        "int": 0,
+        "vit": 1,
+        "spi": 1
+      }
+    },
+    {
+      "id": "naga",
+      "name": "Naga",
+      "base_stats": {
+        "str": 1,
+        "dex": 1,
+        "int": 1,
+        "vit": 1,
+        "spi": 0
+      }
+    },
+    {
+      "id": "salamander",
+      "name": "Salamander",
+      "base_stats": {
+        "str": 0,
+        "dex": 1,
+        "int": 1,
+        "vit": 0,
+        "spi": 3
+      }
+    },
+    {
+      "id": "frostborn",
+      "name": "Frostborn",
+      "base_stats": {
+        "str": 1,
+        "dex": 0,
+        "int": 1,
+        "vit": 2,
+        "spi": 1
+      }
+    },
+    {
+      "id": "stormborn",
+      "name": "Stormborn",
+      "base_stats": {
+        "str": 0,
+        "dex": 2,
+        "int": 1,
+        "vit": 0,
+        "spi": 2
+      }
+    },
+    {
+      "id": "shadowborn",
+      "name": "Shadowborn",
+      "base_stats": {
+        "str": 0,
+        "dex": 2,
+        "int": 1,
+        "vit": 0,
+        "spi": 2
+      }
+    },
+    {
+      "id": "stoneborn",
+      "name": "Stoneborn",
+      "base_stats": {
+        "str": 2,
+        "dex": 0,
+        "int": 0,
+        "vit": 3,
+        "spi": 0
+      }
+    },
+    {
+      "id": "sandborn",
+      "name": "Sandborn",
+      "base_stats": {
+        "str": 1,
+        "dex": 2,
+        "int": 0,
+        "vit": 1,
+        "spi": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "project": "Depthbound (infra)",
+  "version": "v0.1.0",
+  "date": "2025-08-16",
+  "notes": [
+    "Add Playwright smoke tests and GitHub Actions CI to run the game headlessly and fail on console errors."
+  ]
+}

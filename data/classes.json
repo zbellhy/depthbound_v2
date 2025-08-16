@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "classes": [
+    {
+      "id": "warrior",
+      "name": "Warrior"
+    },
+    {
+      "id": "barbarian",
+      "name": "Barbarian"
+    },
+    {
+      "id": "paladin",
+      "name": "Paladin"
+    },
+    {
+      "id": "ranger",
+      "name": "Ranger"
+    },
+    {
+      "id": "rogue",
+      "name": "Rogue"
+    },
+    {
+      "id": "bard",
+      "name": "Bard"
+    },
+    {
+      "id": "monk",
+      "name": "Monk"
+    },
+    {
+      "id": "wizard",
+      "name": "Wizard"
+    },
+    {
+      "id": "sorcerer",
+      "name": "Sorcerer"
+    },
+    {
+      "id": "warlock",
+      "name": "Warlock"
+    },
+    {
+      "id": "druid",
+      "name": "Druid"
+    },
+    {
+      "id": "cleric",
+      "name": "Cleric"
+    }
+  ]
+}

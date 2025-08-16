@@ -1,0 +1,333 @@
+{
+  "schema_version": 2,
+  "items": [
+    {
+      "id": "rusted_dagger",
+      "name": "Rusted Dagger",
+      "type": "weapon",
+      "slot": "main_hand",
+      "rarity": "common",
+      "level": 1,
+      "value": 8,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "attack": 1
+      }
+    },
+    {
+      "id": "short_sword",
+      "name": "Short Sword",
+      "type": "weapon",
+      "slot": "main_hand",
+      "rarity": "common",
+      "level": 1,
+      "value": 20,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "attack": 2
+      }
+    },
+    {
+      "id": "club",
+      "name": "Club",
+      "type": "weapon",
+      "slot": "main_hand",
+      "rarity": "common",
+      "level": 1,
+      "value": 12,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "attack": 1
+      }
+    },
+    {
+      "id": "spiked_mace",
+      "name": "Spiked Mace",
+      "type": "weapon",
+      "slot": "main_hand",
+      "rarity": "uncommon",
+      "level": 2,
+      "value": 45,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "attack": 3
+      }
+    },
+    {
+      "id": "hunter_bow",
+      "name": "Hunter Bow",
+      "type": "weapon",
+      "slot": "main_hand",
+      "rarity": "uncommon",
+      "level": 2,
+      "value": 60,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "attack": 3
+      }
+    },
+    {
+      "id": "iron_helm",
+      "name": "Iron Helm",
+      "type": "armor",
+      "slot": "head",
+      "rarity": "common",
+      "level": 1,
+      "value": 18,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "defense": 1
+      }
+    },
+    {
+      "id": "leather_cap",
+      "name": "Leather Cap",
+      "type": "armor",
+      "slot": "head",
+      "rarity": "common",
+      "level": 1,
+      "value": 12,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "defense": 1
+      }
+    },
+    {
+      "id": "leather_vest",
+      "name": "Leather Vest",
+      "type": "armor",
+      "slot": "body",
+      "rarity": "common",
+      "level": 1,
+      "value": 22,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "defense": 1
+      }
+    },
+    {
+      "id": "iron_cuirass",
+      "name": "Iron Cuirass",
+      "type": "armor",
+      "slot": "body",
+      "rarity": "uncommon",
+      "level": 2,
+      "value": 55,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "defense": 2
+      }
+    },
+    {
+      "id": "buckler",
+      "name": "Buckler",
+      "type": "armor",
+      "slot": "off_hand",
+      "rarity": "common",
+      "level": 1,
+      "value": 20,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "defense": 1
+      }
+    },
+    {
+      "id": "round_shield",
+      "name": "Round Shield",
+      "type": "armor",
+      "slot": "off_hand",
+      "rarity": "uncommon",
+      "level": 2,
+      "value": 48,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "defense": 2
+      }
+    },
+    {
+      "id": "ring_of_vigor",
+      "name": "Ring of Vigor",
+      "type": "trinket",
+      "slot": "trinket",
+      "rarity": "rare",
+      "level": 3,
+      "value": 120,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "hp": 5
+      }
+    },
+    {
+      "id": "health_potion_small",
+      "name": "Health Potion (S)",
+      "type": "consumable",
+      "slot": null,
+      "rarity": "common",
+      "level": 1,
+      "value": 10,
+      "stackable": true,
+      "max_stack": 5,
+      "mods": {
+        "heal": 10
+      }
+    },
+    {
+      "id": "health_potion_medium",
+      "name": "Health Potion (M)",
+      "type": "consumable",
+      "slot": null,
+      "rarity": "uncommon",
+      "level": 2,
+      "value": 25,
+      "stackable": true,
+      "max_stack": 5,
+      "mods": {
+        "heal": 20
+      }
+    },
+    {
+      "id": "throwing_knife",
+      "name": "Throwing Knife",
+      "type": "consumable",
+      "slot": null,
+      "rarity": "common",
+      "level": 1,
+      "value": 6,
+      "stackable": true,
+      "max_stack": 10,
+      "mods": {
+        "attack": 1
+      }
+    },
+    {
+      "id": "rope",
+      "name": "Rope",
+      "type": "material",
+      "slot": null,
+      "rarity": "common",
+      "level": 1,
+      "value": 4,
+      "stackable": true,
+      "max_stack": 20,
+      "mods": {}
+    },
+    {
+      "id": "iron_scrap",
+      "name": "Iron Scrap",
+      "type": "material",
+      "slot": null,
+      "rarity": "common",
+      "level": 1,
+      "value": 3,
+      "stackable": true,
+      "max_stack": 20,
+      "mods": {}
+    },
+    {
+      "id": "goblin_ear",
+      "name": "Goblin Ear",
+      "type": "material",
+      "slot": null,
+      "rarity": "uncommon",
+      "level": 1,
+      "value": 8,
+      "stackable": true,
+      "max_stack": 20,
+      "mods": {}
+    },
+    {
+      "id": "amber_gem",
+      "name": "Amber Gem",
+      "type": "material",
+      "slot": null,
+      "rarity": "rare",
+      "level": 2,
+      "value": 40,
+      "stackable": true,
+      "max_stack": 10,
+      "mods": {}
+    },
+    {
+      "id": "ancient_coin",
+      "name": "Ancient Coin",
+      "type": "material",
+      "slot": null,
+      "rarity": "rare",
+      "level": 2,
+      "value": 30,
+      "stackable": true,
+      "max_stack": 50,
+      "mods": {}
+    },
+    {
+      "id": "elixir_of_grit",
+      "name": "Elixir of Grit",
+      "type": "consumable",
+      "slot": null,
+      "rarity": "rare",
+      "level": 3,
+      "value": 80,
+      "stackable": true,
+      "max_stack": 3,
+      "mods": {
+        "attack": 2,
+        "defense": 1
+      }
+    },
+    {
+      "id": "phantom_blade",
+      "name": "Phantom Blade",
+      "type": "weapon",
+      "slot": "main_hand",
+      "rarity": "epic",
+      "level": 4,
+      "value": 350,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "attack": 6
+      }
+    },
+    {
+      "id": "aegis_charm",
+      "name": "Aegis Charm",
+      "type": "trinket",
+      "slot": "trinket",
+      "rarity": "epic",
+      "level": 4,
+      "value": 300,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "defense": 4
+      }
+    },
+    {
+      "id": "sun_crown",
+      "name": "Sun Crown",
+      "type": "armor",
+      "slot": "head",
+      "rarity": "legendary",
+      "level": 5,
+      "value": 800,
+      "stackable": false,
+      "max_stack": 1,
+      "mods": {
+        "hp": 12,
+        "defense": 3
+      }
+    }
+  ]
+}

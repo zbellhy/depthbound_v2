@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Depthbound</title>
+    <link rel="stylesheet" href="styles/main.css"/>
+  </head>
+  <body>
+    <div id="root">
+      <canvas id="screen-canvas" aria-label="game screen"></canvas>
+      <div id="hud-version" class="hud"></div>
+
+      <div id="dev-overlay" class="overlay hidden" aria-hidden="true"></div>
+      <div id="help-overlay" class="overlay hidden" aria-hidden="true"></div>
+
+      <canvas id="minimap" class="overlay hidden" width="200" height="200" aria-hidden="true"></canvas>
+
+      <div id="modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-inner" id="modal-inner"></div>
+      </div>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

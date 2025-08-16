@@ -1,0 +1,12 @@
+--- a/src/game/scenes/town.js
++++ b/src/game/scenes/town.js
+@@
+   update(dt){
+-    const st = this.sm.state;
++    const st = this.sm.state;
++    // UI-active/frame gate: ignore scene input while a UI is open or just closed
++    if (st.uiActive || (st.uiBlockFrames>0)){
++      if (st.uiBlockFrames>0) st.uiBlockFrames--;
++      return;
++    }
+     const input = st.input;

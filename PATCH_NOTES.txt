@@ -1,0 +1,2 @@
+Fix v0.3.36-FIX2: Remove duplicate 'st' declaration in scene gates by using '__st' to gate UI.
+Files: src/game/scenes/town.js, src/game/scenes/caves.js

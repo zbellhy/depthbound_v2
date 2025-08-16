@@ -1,0 +1,21 @@
+{
+  "name": "depthbound-infra",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Infra tooling for Depthbound: CI + headless smoke run",
+  "scripts": {
+    "format": "prettier -w .",
+    "lint": "eslint \"src/**/*.{js,mjs}\" --max-warnings=0 || true",
+    "serve": "http-server -p 4173 -c-1 .",
+    "test:smoke": "playwright test",
+    "test:ui": "playwright test --headed --project=chromium",
+    "pretest": "node -e \"process.exit(0)\""
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "http-server": "^14.1.1",
+    "prettier": "^3.2.5"
+  }
+}

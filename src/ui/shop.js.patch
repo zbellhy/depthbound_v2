@@ -1,0 +1,17 @@
+--- a/src/ui/shop.js
++++ b/src/ui/shop.js
+@@
++import { consumeEscapeFor } from './ui_state.js';
+@@
+-  function onEsc(e){ if (e.code==='Escape'){ e.preventDefault(); close(); } }
++  function onEsc(e){ if (e.code==='Escape'){ e.preventDefault(); e.stopPropagation(); if (e.stopImmediatePropagation) e.stopImmediatePropagation(); close(true); } }
+@@
+-  document.addEventListener('keydown', onEsc);
++  document.addEventListener('keydown', onEsc, true);
+@@
+-  function close(){
++  function close(viaEsc=false){
++    if (viaEsc){ try{ state.input && state.input.swallowEscapeEdge && state.input.swallowEscapeEdge(); }catch(e){} consumeEscapeFor(250); }
+     document.removeEventListener('keydown', onEsc);
+     m.classList.add('hidden');
+   }
