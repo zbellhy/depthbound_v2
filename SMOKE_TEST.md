@@ -1,7 +1,14 @@
-# SMOKE TEST — v0.4.12.1
+# SMOKE_TEST — What these tests cover
 
-1) Open Inventory while backpack contains items not present in `data/items.json` (e.g., apple, bandage).
-   - Expected: No crash; unknown items render with '?' and a blank slot label.
-2) Click unknown items: handler ignores equip/consume because item def is missing (non-breaking).
-3) Known items still show proper slot abbreviations and equip/consume works.
-4) Combat, loot, vendors remain unaffected. No console errors.
+- Boot: Title → Character Create modal → Town.
+- Inventory:
+  - `KeyI` opens inventory (`#inv-root` visible).
+  - `Escape` or close button hides modal.
+- Vendor:
+  - Press `E` at/near spawn (plus a few nudges) to open vendor.
+  - Buy/Sell lists present; Close button returns to Town.
+
+**Not yet covered (next batch):**
+- Caves exit → bump-to-duel → Combat UI (attack/flee)
+- Victory loot placement & persistence
+- Equip/Unequip behavior, price math, and stock decrement

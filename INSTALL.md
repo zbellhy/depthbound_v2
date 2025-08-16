@@ -1,5 +1,10 @@
-# INSTALL — Infra v0.1.1 (tests-only)
+# INSTALL — Mechanics Tests v0.4.13 (tests-only)
 
-1) Copy `tests/smoke.spec.ts`, `VERSION.json`, and `PATCH_NOTES.md` into your repo root (overwriting the old test file).
-2) Commit: "Infra v0.1.1 — harden smoke Esc toggle"
-3) Push. The **Smoke** workflow will re-run automatically.
+Copy the `tests/` folder contents into your repo root (next to `index.html`).  
+Commit and push — your **Smoke** workflow will run Playwright and execute these tests.
+
+**Included tests**:
+- `inventory.spec.ts`: open/close Inventory with `I`.
+- `vendor.spec.ts`: open Vendor near spawn with `E`, assert Buy/Sell lists, close.
+
+> These tests do **not** change app code. They click the canvas to ensure focus, then drive the app via keyboard and visible DOM.
