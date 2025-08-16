@@ -1,11 +1,5 @@
-# INSTALL — Infra v0.1.0 (CI + headless smoke)
+# INSTALL — Infra v0.1.1 (tests-only)
 
-1) Put these files at the **repo root** (same folder as `index.html`). They do **not** touch your app code.
-2) Commit and push to GitHub (`main` or `master`). This triggers the **Smoke** workflow.
-3) Optional local run:
-   ```bash
-   npm i
-   npx playwright install --with-deps
-   npm run test:smoke
-   ```
-Artifacts (screenshots/trace) upload automatically on failures in CI.
+1) Copy `tests/smoke.spec.ts`, `VERSION.json`, and `PATCH_NOTES.md` into your repo root (overwriting the old test file).
+2) Commit: "Infra v0.1.1 — harden smoke Esc toggle"
+3) Push. The **Smoke** workflow will re-run automatically.

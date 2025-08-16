@@ -1,8 +1,9 @@
 {
   "project": "Depthbound (infra)",
-  "version": "v0.1.0",
+  "version": "v0.1.1",
   "date": "2025-08-16",
   "notes": [
-    "Add Playwright smoke tests and GitHub Actions CI to run the game headlessly and fail on console errors."
+    "Smoke test hardened: ensures canvas/body focus and dispatches a window-level Escape keydown if needed.",
+    "Fixes CI failure where #modal remained hidden due to focus not being on the game's input target."
   ]
 }
