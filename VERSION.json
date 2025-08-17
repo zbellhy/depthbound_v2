@@ -1,8 +1,8 @@
 {
   "project": "Depthbound",
-  "version": "v0.5.4",
+  "version": "v0.5.5",
   "date": "2025-08-17",
   "notes": [
-    "Force Character Sheet even if another UI just opened in same tick."
+    "Rebind Character Sheet from C to P (Profile)."
   ]
 }

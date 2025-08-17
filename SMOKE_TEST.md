@@ -1,4 +1,4 @@
-# SMOKE_TEST — v0.5.4
-- Press **C** rapidly: Inventory must not remain visible; Character Sheet wins.
-- Press **I**: Inventory opens as usual.
-- ESC behavior remains correct (no Pause leak).
+# SMOKE_TEST — v0.5.5
+- **P** opens Character Sheet; **I** still opens Inventory.
+- Rapid C/I/P presses do not cause cross‑opening or leaks.
+- Vendor (E) remains unchanged.
