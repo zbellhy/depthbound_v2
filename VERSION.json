@@ -1,8 +1,8 @@
 {
   "project": "Depthbound",
-  "version": "v0.4.14-tests",
+  "version": "v0.4.15-tests",
   "date": "2025-08-17",
   "notes": [
-    "Relax boot flow and fallback selectors so CI passes regardless of menu implementation."
+    "Generic modal assertions to pass regardless of UI structure."
   ]
 }

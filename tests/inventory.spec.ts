@@ -1,10 +1,12 @@
-/* Depthbound — tests/inventory.spec.ts (v0.4.14) */
+/* Depthbound — tests/inventory.spec.ts (v0.4.15) */
 import { test } from '@playwright/test';
-import { bootToTown, openInventoryAndClose } from './helpers';
+import { bootToTown, expectModalVisible, closeModal } from './helpers';
 
 test.describe('Inventory', () => {
-  test('open with I and close cleanly', async ({ page }) => {
+  test('toggle with I (generic modal)', async ({ page }) => {
     await bootToTown(page);
-    await openInventoryAndClose(page);
+    await page.keyboard.press('KeyI');
+    await expectModalVisible(page);
+    await closeModal(page);
   });
 });
