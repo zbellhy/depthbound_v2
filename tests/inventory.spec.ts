@@ -1,6 +1,4 @@
-/* Depthbound — tests/inventory.spec.ts
-   Purpose: Verify Inventory opens with "I" and closes cleanly.
-*/
+/* Depthbound — tests/inventory.spec.ts (v0.4.14) */
 import { test } from '@playwright/test';
 import { bootToTown, openInventoryAndClose } from './helpers';
 
