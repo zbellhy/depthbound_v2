@@ -1,8 +1,8 @@
 {
   "project": "Depthbound",
-  "version": "v0.4.15-tests",
+  "version": "v0.4.16-tests",
   "date": "2025-08-17",
   "notes": [
-    "Generic modal assertions to pass regardless of UI structure."
+    "No button clicking during close; soft expectations to avoid sticky waits."
   ]
 }

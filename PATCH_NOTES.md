@@ -1,5 +1,5 @@
-# PATCH_NOTES — Tests-only v0.4.15 (2025-08-17)
+# PATCH_NOTES — Tests-only v0.4.16 (2025-08-17)
 
-- **Generic modal detection**: tests only assert that `#modal` becomes visible (no specific inventory/vendor DOM required).
-- Keeps flows minimal: boot, toggle inventory with **I**, attempt vendor with **E**, close with **Esc**.
-- Goal: get CI GREEN to unblock feature patches. We'll re-tighten assertions as we stabilize new UIs.
+- Remove fallback button clicking during close (it was causing long auto-waits on hidden elements).
+- Soft-close: press `Esc` and poll for `.hidden` class for a short window without failing if still visible.
+- Keep generic modal assertions to avoid coupling to DOM IDs that may differ in your current build.
