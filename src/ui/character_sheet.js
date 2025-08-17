@@ -1,7 +1,6 @@
 /*
- Depthbound — src/ui/character_sheet.js (v0.5.2)
- Purpose: Render the Character Sheet modal (UI-only), showing 22 equipment slots and 8 mutation sockets.
- This version **injects its own CSS** at runtime so you don't need to edit styles/main.css.
+ Depthbound — src/ui/character_sheet.js (v0.5.3)
+ Purpose: Render the Character Sheet modal; inject minimal CSS at runtime (no main.css dependency).
 */
 import { enterUi, exitUi, consumeEscapeFor, isUiActive } from './ui_state.js';
 import input from '../core/input.js';
@@ -55,18 +54,15 @@ let _open = false;
 
 export function openCharacterSheet(){
   if (!FLAGS.CHAR_SHEET_ENABLED) return;
-  if (isUiActive()) return; // respect existing UI
+  if (isUiActive()) return;
   const { modal, inner } = ensureModalElements();
 
-  ensureStyles(); // <-- inject styles at runtime
-
-  enterUi();
-  _open = true;
+  ensureStyles();
+  enterUi(); _open = true;
 
   modal.classList.remove('hidden');
   inner.classList.add('modal-wide');
   inner.setAttribute('aria-hidden', 'false');
-
   inner.innerHTML = renderSheetHtml();
 
   _escHandler = (ev) => {
@@ -83,14 +79,11 @@ export function closeCharacterSheet(){
   const { modal, inner } = ensureModalElements();
   if (!_open) return;
   _open = false;
-
   try { input.swallowEscapeEdge?.(); } catch {}
   try { consumeEscapeFor(260); } catch {}
   try { exitUi(); } catch {}
-
   document.removeEventListener('keydown', _escHandler, true);
   _escHandler = null;
-
   inner.classList.remove('modal-wide');
   modal.classList.add('hidden');
   inner.setAttribute('aria-hidden', 'true');
@@ -103,25 +96,22 @@ function renderSheetHtml(){
         <h2>Character Sheet</h2>
         <div class="cs-hint">Press Esc to close</div>
       </div>
-
       <div class="cs-content">
         <section class="cs-panel">
           <h3>Equipment</h3>
           <div class="equip-board">
-            ${SLOT_IDS.map(id => `<div class="slot" data-slot="${id}"><span>${id.replace(/_/g,' ')}</span><div class="slot-empty">empty</div></div>`).join('')}
+            ${SLOT_IDS.map(id => `<div class="slot" data-slot="\${id}"><span>\${id.replace(/_/g,' ')}</span><div class="slot-empty">empty</div></div>`).join('')}
           </div>
         </section>
-
         <section class="cs-panel">
           <h3>Mutations (8)</h3>
           <div class="mutations-grid">
-            ${Array.from({length:8}).map((_,i)=>`<div class="mut-slot" data-mut="${i+1}"><span>slot ${i+1}</span><div class="slot-empty">empty</div></div>`).join('')}
+            ${Array.from({length:8}).map((_,i)=>`<div class="mut-slot" data-mut="\${i+1}"><span>slot \${i+1}</span><div class="slot-empty">empty</div></div>`).join('')}
           </div>
         </section>
-
         <section class="cs-panel">
           <h3>Stats (preview)</h3>
-          <p class="muted">Stats pipeline is present but not wired to gameplay yet. This panel will populate when we connect player base, items, and mutations in the next patch.</p>
+          <p class="muted">Stats pipeline will populate in the next patch.</p>
         </section>
       </div>
     </div>

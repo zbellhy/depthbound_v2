@@ -1,7 +1,4 @@
-# SMOKE_TEST — After patch
-
-- Launch the game locally; press **C**.
-  - The Character Sheet modal opens with a 22-slot board and 8 mutation sockets.
-  - The modal is fully contained (no horizontal scroll at common widths).
-  - Press **Esc**: the sheet closes; Pause does **not** open until the next Esc on the map.
-- Inventory (I), Vendor (E), and existing flows are unchanged.
+# SMOKE_TEST — Hotfix v0.5.3
+- Press **C** → Character Sheet opens; no horizontal scroll; ESC closes without Pause leak.
+- Press **I** → Inventory opens/close as before.
+- Vendor (E) still works; ESC behavior unchanged.

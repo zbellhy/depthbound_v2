@@ -1,8 +1,8 @@
 {
   "project": "Depthbound",
-  "version": "v0.5.2",
+  "version": "v0.5.3",
   "date": "2025-08-17",
   "notes": [
-    "Character Sheet CSS injected from JS; no main.css changes required."
+    "Window-capture binder for C; stopImmediatePropagation; CSS injected in sheet."
   ]
 }
