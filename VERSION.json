@@ -1,9 +1,9 @@
 {
-  "project": "Depthbound (infra)",
-  "version": "v0.1.10",
+  "project": "Depthbound",
+  "version": "v0.5.1",
   "date": "2025-08-17",
   "notes": [
-    "Unconditional Chromium install (fast with cache).",
-    "Pin Playwright CLI via npx to the same version."
+    "Flip feature flags ON and wire Character Sheet (C).",
+    "UI-only; no core gameplay changes; minimal surface area."
   ]
 }
