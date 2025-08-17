@@ -1,10 +1,10 @@
 {
   "project": "Depthbound (infra)",
-  "version": "v0.1.7",
+  "version": "v0.1.8",
   "date": "2025-08-17",
   "notes": [
-    "Run Playwright via npx to remove reliance on package.json scripts/devDeps.",
-    "Keep Playwright browser cache to skip Chromium installs on warm cache.",
-    "Concurrency cancels in-progress runs."
+    "Install @playwright/test locally in the CI workspace.",
+    "Cache browsers; skip Chromium install on warm cache.",
+    "No reliance on repo npm scripts."
   ]
 }
