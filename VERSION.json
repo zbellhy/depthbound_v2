@@ -1,9 +1,10 @@
 {
-  "project": "Depthbound (tests config)",
-  "version": "v0.1.0",
+  "project": "Depthbound (infra)",
+  "version": "v0.1.9",
   "date": "2025-08-17",
   "notes": [
-    "Add Playwright config with built-in static web server for CI.",
-    "No external server dependency; no package.json scripts required."
+    "Pre-create Playwright cache dir before cache action.",
+    "Drop npm cache to avoid unresolved-path errors without a lockfile.",
+    "Keep local @playwright/test install and browser cache."
   ]
 }

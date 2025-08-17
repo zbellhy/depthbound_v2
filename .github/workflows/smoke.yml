@@ -19,30 +19,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node (npm cache on)
+      # Do NOT enable npm caching; your repo doesn't ship a lockfile yet.
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
 
-      - name: Ensure package.json exists
-        run: |
-          if [ ! -f package.json ]; then
-            npm init -y
-          fi
-
-      - name: Install Playwright test runner locally
-        run: npm i -D @playwright/test@1.45.3
+      # Ensure the browser cache path exists BEFORE using actions/cache,
+      # otherwise the action errors with "Some specified paths were not resolved".
+      - name: Ensure Playwright cache directory exists
+        run: mkdir -p ~/.cache/ms-playwright
 
       - name: Cache Playwright browsers
         id: pw-cache
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-pw-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-pw-${{ hashFiles('playwright.config.ts') }}
           restore-keys: |
             ${{ runner.os }}-pw-
+
+      - name: Ensure package.json exists
+        run: |
+          if [ ! -f package.json ]; then
+            npm init -y >/dev/null 2>&1
+          fi
+
+      - name: Install Playwright test runner locally
+        run: npm i -D @playwright/test@1.45.3
 
       - name: Install OS deps & Chromium (skip browser install if cached)
         run: |
