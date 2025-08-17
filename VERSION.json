@@ -1,8 +1,10 @@
 {
-  "project": "Depthbound",
-  "version": "v0.4.13-tests",
+  "project": "Depthbound (infra)",
+  "version": "v0.1.7",
   "date": "2025-08-17",
   "notes": [
-    "Add Playwright mechanics tests for Inventory and Vendor flows."
+    "Run Playwright via npx to remove reliance on package.json scripts/devDeps.",
+    "Keep Playwright browser cache to skip Chromium installs on warm cache.",
+    "Concurrency cancels in-progress runs."
   ]
 }

@@ -19,36 +19,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node (with npm cache)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-          cache-dependency-path: package-lock.json
-
       - name: Cache Playwright browsers
         id: pw-cache
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-pw-${{ hashFiles('package.json') }}
+          key: ${{ runner.os }}-pw-${{ hashFiles('playwright.config.ts') }}
           restore-keys: |
             ${{ runner.os }}-pw-
 
-      - name: Install deps (fast)
+      - name: Install Playwright CLI & Chromium (skip if cached browsers)
         run: |
-          if [ -f package-lock.json ]; then
-            npm ci --prefer-offline --no-audit
-          else
-            npm i --prefer-offline --no-audit
+          npx -y @playwright/test@1.45.3 install-deps
+          if [ "${{ steps.pw-cache.outputs.cache-hit }}" != "true" ]; then
+            npx -y @playwright/test@1.45.3 install chromium
           fi
 
-      - name: Install Chromium browser only (skip if cached)
-        if: steps.pw-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps chromium
-
       - name: Run smoke tests (Chromium headless)
-        run: npm run test:smoke
+        run: npx -y @playwright/test@1.45.3 test
 
       - name: Upload artifacts on failure
         if: failure()
