@@ -1,16 +1,8 @@
 /*
- Depthbound — src/ui/character_sheet.js
+ Depthbound — src/ui/character_sheet.js (v0.5.2)
  Purpose: Render the Character Sheet modal (UI-only), showing 22 equipment slots and 8 mutation sockets.
- Dependencies:
-   - UI latches: enterUi, exitUi, isUiActive, consumeEscapeFor from ./ui_state.js
-   - Input singleton (swallowEscapeEdge) from ../core/input.js
-   - Feature flags from ../core/feature_flags.js
- Contracts:
-   - Uses existing #modal and #modal-inner containers.
-   - Applies .modal-wide to prevent overflow.
- Touched systems: none (display only). No changes to inventory/equipment logic.
+ This version **injects its own CSS** at runtime so you don't need to edit styles/main.css.
 */
-
 import { enterUi, exitUi, consumeEscapeFor, isUiActive } from './ui_state.js';
 import input from '../core/input.js';
 import { FLAGS } from '../core/feature_flags.js';
@@ -36,6 +28,28 @@ function ensureModalElements(){
   return { modal, inner };
 }
 
+function ensureStyles(){
+  if (document.getElementById('char-sheet-styles')) return;
+  const css = `
+  .char-sheet { display: grid; gap: 16px; }
+  .char-sheet .cs-header { display:flex; align-items:center; justify-content:space-between; }
+  .char-sheet .cs-header h2 { margin:0; font-size: 20px; }
+  .char-sheet .cs-hint { opacity: 0.7; font-size: 12px; }
+  .char-sheet .cs-content { display:grid; gap:16px; }
+  .char-sheet .cs-panel h3 { margin: 0 0 8px 0; font-size: 16px; }
+  .equip-board { display:grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap:8px; }
+  .equip-board .slot { border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:8px; min-height:64px; display:grid; gap:6px; }
+  .equip-board .slot span { opacity:0.8; font-size:12px; }
+  .slot-empty { opacity:0.6; font-size:12px; }
+  .mutations-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap:8px; }
+  .mutations-grid .mut-slot { border:1px dashed rgba(255,255,255,0.2); border-radius:12px; padding:8px; min-height:56px; display:grid; gap:6px; }
+  .muted { opacity: 0.7; }`;
+  const el = document.createElement('style');
+  el.id = 'char-sheet-styles';
+  el.textContent = css;
+  document.head.appendChild(el);
+}
+
 let _escHandler = null;
 let _open = false;
 
@@ -44,7 +58,8 @@ export function openCharacterSheet(){
   if (isUiActive()) return; // respect existing UI
   const { modal, inner } = ensureModalElements();
 
-  // enter UI + prepare DOM
+  ensureStyles(); // <-- inject styles at runtime
+
   enterUi();
   _open = true;
 
@@ -52,10 +67,8 @@ export function openCharacterSheet(){
   inner.classList.add('modal-wide');
   inner.setAttribute('aria-hidden', 'false');
 
-  // Render contents
   inner.innerHTML = renderSheetHtml();
 
-  // Capture-phase Esc
   _escHandler = (ev) => {
     if (ev.key === 'Escape'){
       ev.preventDefault();
@@ -71,7 +84,6 @@ export function closeCharacterSheet(){
   if (!_open) return;
   _open = false;
 
-  // UI latches and edges
   try { input.swallowEscapeEdge?.(); } catch {}
   try { consumeEscapeFor(260); } catch {}
   try { exitUi(); } catch {}
@@ -79,7 +91,6 @@ export function closeCharacterSheet(){
   document.removeEventListener('keydown', _escHandler, true);
   _escHandler = null;
 
-  // Hide & cleanup
   inner.classList.remove('modal-wide');
   modal.classList.add('hidden');
   inner.setAttribute('aria-hidden', 'true');
