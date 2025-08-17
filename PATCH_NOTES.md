@@ -1,3 +1,4 @@
-# PATCH NOTES — v0.5.3 (2025-08-17)
-- Fix: **C opens Inventory** — binder moved to **window capture** and stops propagation immediately.
-- Injected CSS remains in `character_sheet.js` so no stylesheet edits are required.
+# PATCH_NOTES — v0.5.4 (2025-08-17)
+- Force Character Sheet on **C** even if Inventory opens in the same key event.
+- Bootstrap calls `openCharacterSheet({force:true})`; the sheet gracefully exits any active UI and claims the latch.
+- Still uses window-capture + stopImmediatePropagation to minimize races.

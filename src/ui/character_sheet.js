@@ -1,6 +1,6 @@
 /*
- Depthbound — src/ui/character_sheet.js (v0.5.3)
- Purpose: Render the Character Sheet modal; inject minimal CSS at runtime (no main.css dependency).
+ Depthbound — src/ui/character_sheet.js (v0.5.4)
+ Purpose: Render the Character Sheet modal; can **force**-open even if another UI is active.
 */
 import { enterUi, exitUi, consumeEscapeFor, isUiActive } from './ui_state.js';
 import input from '../core/input.js';
@@ -52,13 +52,25 @@ function ensureStyles(){
 let _escHandler = null;
 let _open = false;
 
-export function openCharacterSheet(){
+export function openCharacterSheet(opts={}){
+  const force = !!opts.force;
   if (!FLAGS.CHAR_SHEET_ENABLED) return;
-  if (isUiActive()) return;
-  const { modal, inner } = ensureModalElements();
 
+  const { modal, inner } = ensureModalElements();
   ensureStyles();
-  enterUi(); _open = true;
+
+  if (isUiActive()) {
+    if (!force) return;
+    // Gracefully exit whatever UI just claimed the latch in the same tick
+    try { exitUi(); } catch {}
+    inner.classList.remove('modal-wide');
+    modal.classList.add('hidden');
+    inner.setAttribute('aria-hidden', 'true');
+  }
+
+  // Now claim the UI for the sheet
+  try { enterUi(); } catch {}
+  _open = true;
 
   modal.classList.remove('hidden');
   inner.classList.add('modal-wide');
@@ -100,13 +112,13 @@ function renderSheetHtml(){
         <section class="cs-panel">
           <h3>Equipment</h3>
           <div class="equip-board">
-            ${SLOT_IDS.map(id => `<div class="slot" data-slot="\${id}"><span>\${id.replace(/_/g,' ')}</span><div class="slot-empty">empty</div></div>`).join('')}
+            ${SLOT_IDS.map(id => `<div class="slot" data-slot="${id}"><span>${id.replace(/_/g,' ')}</span><div class="slot-empty">empty</div></div>`).join('')}
           </div>
         </section>
         <section class="cs-panel">
           <h3>Mutations (8)</h3>
           <div class="mutations-grid">
-            ${Array.from({length:8}).map((_,i)=>`<div class="mut-slot" data-mut="\${i+1}"><span>slot \${i+1}</span><div class="slot-empty">empty</div></div>`).join('')}
+            ${Array.from({length:8}).map((_,i)=>`<div class="mut-slot" data-mut="${i+1}"><span>slot ${i+1}</span><div class="slot-empty">empty</div></div>`).join('')}
           </div>
         </section>
         <section class="cs-panel">

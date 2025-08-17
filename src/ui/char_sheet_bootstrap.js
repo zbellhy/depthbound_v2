@@ -1,12 +1,10 @@
 /*
- Depthbound — src/ui/char_sheet_bootstrap.js (v0.5.3)
- Purpose: Bind 'C' to open the Character Sheet **before** any document-level handlers (inventory, etc.).
- Strategy: Attach to **window** with capture=true, call preventDefault + stopImmediatePropagation,
- so no other key handlers (even capture-phase on document) see the event.
+ Depthbound — src/ui/char_sheet_bootstrap.js (v0.5.4)
+ Purpose: Make 'C' reliably open Character Sheet even if another UI (e.g., Inventory) is racing.
+ Strategy: window capture; stopImmediatePropagation; call openCharacterSheet({force:true}).
 */
 import { FLAGS } from '../core/feature_flags.js';
 import { openCharacterSheet } from './character_sheet.js';
-import { isUiActive } from './ui_state.js';
 
 function wantsCharSheet(ev){
   const k = ev.key || '';
@@ -16,18 +14,21 @@ function wantsCharSheet(ev){
 function onKeyDownCapture(ev){
   if (!FLAGS.CHAR_SHEET_ENABLED) return;
   if (!wantsCharSheet(ev)) return;
-  // Swallow the event **before** other capture/bubble listeners
+
+  // Swallow earliest
   ev.preventDefault();
-  // Stop other listeners on window/document from firing
   if (typeof ev.stopImmediatePropagation === 'function') ev.stopImmediatePropagation();
   ev.stopPropagation();
 
-  if (!isUiActive()){
-    openCharacterSheet();
-  }
+  // Force the Character Sheet even if another UI just activated in this same event loop
+  openCharacterSheet({ force: true });
 }
 
-// Attach at the **window** target, which receives capture events before document-level listeners.
+// Attach at window capture so we see the event as early as possible
 if (typeof window !== 'undefined'){
-  window.addEventListener('keydown', onKeyDownCapture, { capture: true });
+  // de-dupe guard
+  if (!window.__db_char_sheet_bound) {
+    window.__db_char_sheet_bound = true;
+    window.addEventListener('keydown', onKeyDownCapture, { capture: true });
+  }
 }

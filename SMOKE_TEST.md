@@ -1,4 +1,4 @@
-# SMOKE_TEST — Hotfix v0.5.3
-- Press **C** → Character Sheet opens; no horizontal scroll; ESC closes without Pause leak.
-- Press **I** → Inventory opens/close as before.
-- Vendor (E) still works; ESC behavior unchanged.
+# SMOKE_TEST — v0.5.4
+- Press **C** rapidly: Inventory must not remain visible; Character Sheet wins.
+- Press **I**: Inventory opens as usual.
+- ESC behavior remains correct (no Pause leak).
