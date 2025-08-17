@@ -1,10 +1,9 @@
 {
-  "project": "Depthbound (infra)",
-  "version": "v0.1.8",
+  "project": "Depthbound (tests config)",
+  "version": "v0.1.0",
   "date": "2025-08-17",
   "notes": [
-    "Install @playwright/test locally in the CI workspace.",
-    "Cache browsers; skip Chromium install on warm cache.",
-    "No reliance on repo npm scripts."
+    "Add Playwright config with built-in static web server for CI.",
+    "No external server dependency; no package.json scripts required."
   ]
 }

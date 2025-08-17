@@ -1,10 +1,14 @@
-# PATCH NOTES — Infra v0.1.8 (2025-08-17)
+# PATCH NOTES — Playwright Config + Dev Server v0.1.0 (2025-08-17)
 
-**What changed**
-- Installs `@playwright/test@1.45.3` **locally** before running, so configs that import `@playwright/test` resolve correctly.
-- Keeps Playwright **browser caching** at `~/.cache/ms-playwright`; Chromium install is skipped on cache hit.
-- Leaves your repo files untouched (no commits to `package.json`); changes exist only in the CI workspace.
-- Cancels in‑progress runs on same branch.
+**What this adds**
+- `playwright.config.ts` with:
+  - `testDir: ./tests`, headless Chromium, `baseURL: http://127.0.0.1:4173`
+  - `webServer`: starts a tiny static server (`node tests/devserver.cjs`) so the game loads over HTTP
+- `tests/devserver.cjs`: dependency-free static server; serves `index.html` for `/`
 
 **Why**
-- Your run failed with `Cannot find module '@playwright/test'` from `playwright.config.ts`. This workflow guarantees the module is present.
+- Your run failed earlier before tests due to environment assumptions. This patch guarantees a working HTTP server and baseURL, so tests can `page.goto('/index.html')` reliably.
+
+**How to use**
+1) Drop these two files in the repo root (config) and `tests/` (dev server).
+2) Push; the Smoke workflow will start the web server automatically and run tests.
