@@ -6,21 +6,51 @@ on:
   pull_request:
     branches: [ main, master ]
 
+concurrency:
+  group: smoke-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   smoke:
     runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
+
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node (with npm cache)
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install tooling and browser
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Cache Playwright browsers
+        id: pw-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-pw-${{ hashFiles('package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-pw-
+
+      - name: Install deps (fast)
         run: |
-          npm ci || npm i
-          npx playwright install --with-deps
+          if [ -f package-lock.json ]; then
+            npm ci --prefer-offline --no-audit
+          else
+            npm i --prefer-offline --no-audit
+          fi
+
+      - name: Install Chromium browser only (skip if cached)
+        if: steps.pw-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
       - name: Run smoke tests (Chromium headless)
         run: npm run test:smoke
-      - name: Upload artifacts (screenshots/trace) on failure
+
+      - name: Upload artifacts on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
@@ -28,4 +58,3 @@ jobs:
           path: |
             test-results/**
             playwright-report/**
-            **/playwright/.cache/**

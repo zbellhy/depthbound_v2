@@ -1,8 +1,8 @@
 {
   "project": "Depthbound",
   "version": "v0.4.13-tests",
-  "date": "2025-08-16",
+  "date": "2025-08-17",
   "notes": [
-    "Add Playwright mechanics tests for Inventory and Vendor flows without modifying app code."
+    "Add Playwright mechanics tests for Inventory and Vendor flows."
   ]
 }

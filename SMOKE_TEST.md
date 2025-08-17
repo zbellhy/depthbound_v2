@@ -5,10 +5,7 @@
   - `KeyI` opens inventory (`#inv-root` visible).
   - `Escape` or close button hides modal.
 - Vendor:
-  - Press `E` at/near spawn (plus a few nudges) to open vendor.
-  - Buy/Sell lists present; Close button returns to Town.
+  - `E` near a vendor opens the shop; Buy/Sell lists render; close.
 
-**Not yet covered (next batch):**
-- Caves exit → bump-to-duel → Combat UI (attack/flee)
-- Victory loot placement & persistence
-- Equip/Unequip behavior, price math, and stock decrement
+Not included yet (future specs):
+- Combat bump-to-duel, victory loot verification, equip deltas, etc.
