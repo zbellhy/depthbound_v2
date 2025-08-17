@@ -1,8 +1,7 @@
-# INSTALL — Tests-only Safety Net (v0.4.14)
+# INSTALL — Patch v0.5.0 (Stats & Slots + Mutations v1, scaffold only)
 
-Copy the `tests/` folder into your repo root (same level as `index.html`). Commit and push.
-Your GitHub Actions **Smoke** workflow will run Playwright and execute these tests.
+1) Unzip into the repo **root** (same level as `index.html`, `src/`, `.github/`).
+2) In GitHub Desktop: commit `patch: v0.5.0 stats+slots+mutations (flags off)` → Push.
+3) Actions → Smoke should stay **green** (no behavior changed).
 
-Changes vs v0.4.13:
-- `bootToTown` no longer requires a Character Create modal; it handles direct‑to‑Town or Enter‑to‑start flows.
-- Inventory and Vendor specs are tolerant to different DOMs (`#inv-root` presence optional; fallback selectors).
+**Nothing will change in-game yet.** This is intentional—wiring happens in a tiny follow-up patch so we can flip flags ON without risk.

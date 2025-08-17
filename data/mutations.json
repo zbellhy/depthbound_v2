@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "slots": 8,
+  "mutations": [
+    {
+      "id": "extra_arms",
+      "name": "Extra Arms",
+      "mods": [
+        {
+          "stat": "hands_capacity",
+          "op": "add",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "keen_sight",
+      "name": "Keen Sight",
+      "mods": [
+        {
+          "stat": "crit_chance",
+          "op": "add",
+          "value": 5
+        },
+        {
+          "stat": "per",
+          "op": "add",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "prehensile_tail",
+      "name": "Prehensile Tail",
+      "mods": [
+        {
+          "stat": "dodge_chance",
+          "op": "add",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "stone_skin",
+      "name": "Stone Skin",
+      "mods": [
+        {
+          "stat": "resist_phys",
+          "op": "add",
+          "value": 10
+        },
+        {
+          "stat": "speed",
+          "op": "add",
+          "value": -5
+        }
+      ]
+    },
+    {
+      "id": "photosynthesis",
+      "name": "Photosynthesis",
+      "mods": [
+        {
+          "stat": "stamina_regen",
+          "op": "add",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "venom_glands",
+      "name": "Venom Glands",
+      "mods": [
+        {
+          "stat": "poison_damage",
+          "op": "mult",
+          "value": 1.15
+        }
+      ]
+    },
+    {
+      "id": "echo_locus",
+      "name": "Echo Locus",
+      "mods": [
+        {
+          "stat": "shock_resist",
+          "op": "add",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "angelic_grace",
+      "name": "Angelic Grace",
+      "mods": [
+        {
+          "stat": "holy_damage",
+          "op": "mult",
+          "value": 1.1
+        }
+      ]
+    }
+  ]
+}

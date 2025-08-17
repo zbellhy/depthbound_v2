@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "stats.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "core",
+    "derived",
+    "channels",
+    "caps"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer"
+    },
+    "core": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "min",
+          "max",
+          "base"
+        ]
+      }
+    },
+    "derived": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "formula"
+        ]
+      }
+    },
+    "channels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ]
+      }
+    },
+    "caps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "max"
+        ]
+      }
+    }
+  }
+}

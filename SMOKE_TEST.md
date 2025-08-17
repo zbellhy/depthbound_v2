@@ -1,11 +1,11 @@
-# SMOKE_TEST — What these tests cover
+# SMOKE_TEST — Manual checks after applying this patch
 
-- Boot: Title → Character Create modal → Town.
-- Inventory:
-  - `KeyI` opens inventory (`#inv-root` visible).
-  - `Escape` or close button hides modal.
-- Vendor:
-  - `E` near a vendor opens the shop; Buy/Sell lists render; close.
-
-Not included yet (future specs):
-- Combat bump-to-duel, victory loot verification, equip deltas, etc.
+- Load the game locally; **everything should behave exactly as before**.
+- No console errors about missing imports (we did not touch existing files).
+- Repo now contains:
+  - data/schemas/*.schema.json
+  - data/stats.json
+  - data/mutations.json
+  - scripts/migrate_items_v2_to_v3.js
+  - src/systems/{stats,equipment,mutations}.js
+  - src/core/feature_flags.js

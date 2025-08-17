@@ -1,8 +1,9 @@
 {
   "project": "Depthbound",
-  "version": "v0.4.16-tests",
+  "version": "v0.5.0",
   "date": "2025-08-17",
   "notes": [
-    "No button clicking during close; soft expectations to avoid sticky waits."
+    "Add scaffolding for Stats & Slots + Mutations (flagged off).",
+    "No existing files modified; CI unaffected."
   ]
 }

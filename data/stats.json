@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "core": [
+    {
+      "id": "str",
+      "name": "Strength",
+      "min": 0,
+      "max": 999,
+      "base": 5
+    },
+    {
+      "id": "dex",
+      "name": "Dexterity",
+      "min": 0,
+      "max": 999,
+      "base": 5
+    },
+    {
+      "id": "con",
+      "name": "Constitution",
+      "min": 0,
+      "max": 999,
+      "base": 5
+    },
+    {
+      "id": "int",
+      "name": "Intellect",
+      "min": 0,
+      "max": 999,
+      "base": 5
+    },
+    {
+      "id": "wis",
+      "name": "Wisdom",
+      "min": 0,
+      "max": 999,
+      "base": 5
+    },
+    {
+      "id": "wil",
+      "name": "Willpower",
+      "min": 0,
+      "max": 999,
+      "base": 5
+    },
+    {
+      "id": "per",
+      "name": "Perception",
+      "min": 0,
+      "max": 999,
+      "base": 5
+    },
+    {
+      "id": "cha",
+      "name": "Charisma",
+      "min": 0,
+      "max": 999,
+      "base": 5
+    }
+  ],
+  "derived": [
+    {
+      "id": "hp_max",
+      "name": "Max Health",
+      "formula": "20 + con*5"
+    },
+    {
+      "id": "stamina_max",
+      "name": "Max Stamina",
+      "formula": "10 + con*2 + str"
+    },
+    {
+      "id": "mana_max",
+      "name": "Max Mana",
+      "formula": "10 + int*3 + wis"
+    },
+    {
+      "id": "crit_chance",
+      "name": "Crit Chance %",
+      "formula": "5 + dex*0.5 + per*0.25",
+      "min": 0,
+      "max": 100
+    },
+    {
+      "id": "carry_cap",
+      "name": "Carry Capacity",
+      "formula": "50 + str*10"
+    }
+  ],
+  "channels": [
+    {
+      "id": "phys",
+      "name": "Physical"
+    },
+    {
+      "id": "fire",
+      "name": "Fire"
+    },
+    {
+      "id": "cold",
+      "name": "Cold"
+    },
+    {
+      "id": "poison",
+      "name": "Poison"
+    },
+    {
+      "id": "shock",
+      "name": "Shock"
+    },
+    {
+      "id": "holy",
+      "name": "Holy"
+    },
+    {
+      "id": "void",
+      "name": "Void"
+    }
+  ],
+  "caps": [
+    {
+      "id": "resist_phys",
+      "max": 75
+    },
+    {
+      "id": "resist_fire",
+      "max": 75
+    },
+    {
+      "id": "resist_cold",
+      "max": 75
+    },
+    {
+      "id": "resist_poison",
+      "max": 75
+    },
+    {
+      "id": "resist_shock",
+      "max": 75
+    },
+    {
+      "id": "resist_holy",
+      "max": 75
+    },
+    {
+      "id": "resist_void",
+      "max": 75
+    }
+  ]
+}
