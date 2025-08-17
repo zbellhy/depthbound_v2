@@ -1,9 +1,9 @@
 {
-  "project": "Depthbound",
-  "version": "v0.5.0",
+  "project": "Depthbound (infra)",
+  "version": "v0.1.10",
   "date": "2025-08-17",
   "notes": [
-    "Add scaffolding for Stats & Slots + Mutations (flagged off).",
-    "No existing files modified; CI unaffected."
+    "Unconditional Chromium install (fast with cache).",
+    "Pin Playwright CLI via npx to the same version."
   ]
 }

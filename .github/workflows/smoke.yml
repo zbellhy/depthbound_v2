@@ -19,15 +19,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Do NOT enable npm caching; your repo doesn't ship a lockfile yet.
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # Ensure the browser cache path exists BEFORE using actions/cache,
-      # otherwise the action errors with "Some specified paths were not resolved".
-      - name: Ensure Playwright cache directory exists
+      - name: Ensure Playwright cache dir exists
         run: mkdir -p ~/.cache/ms-playwright
 
       - name: Cache Playwright browsers
@@ -39,24 +36,22 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pw-
 
-      - name: Ensure package.json exists
+      - name: Ensure package.json exists (workspace only)
         run: |
           if [ ! -f package.json ]; then
             npm init -y >/dev/null 2>&1
           fi
 
-      - name: Install Playwright test runner locally
+      - name: Install Playwright test runner (local)
         run: npm i -D @playwright/test@1.45.3
 
-      - name: Install OS deps & Chromium (skip browser install if cached)
+      - name: Install OS deps & Chromium (ALWAYS; uses cache if present)
         run: |
-          npx playwright install-deps
-          if [ "${{ steps.pw-cache.outputs.cache-hit }}" != "true" ]; then
-            npx playwright install chromium
-          fi
+          npx -y @playwright/test@1.45.3 install-deps
+          npx -y @playwright/test@1.45.3 install chromium
 
       - name: Run smoke tests (Chromium headless)
-        run: npx playwright test
+        run: npx -y @playwright/test@1.45.3 test
 
       - name: Upload artifacts on failure
         if: failure()
